@@ -1,11 +1,9 @@
 package controller;
 
 import model.Product;
-//import model.ProductFactory;
+import model.ProductFactory;
 import model.Winkelwagen;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,24 +48,45 @@ public class WebshopLauncher {
         winkelwagen2.addProduct(product2);
         winkelwagen3.addProduct(product3);
 
+        System.out.println();
         System.out.println("winkelwagen1 == winkelwagen2: " + (winkelwagen1 == winkelwagen2));
         System.out.println("winkelwagen1 == winkelwagen3: " + (winkelwagen1 == winkelwagen3));
+        System.out.println();
 
+        List<Product> productsInWinkelwagen = winkelwagen1.getProductList();
 
-        System.out.println(winkelwagen1.getProductList());
-
-
-
-
+        for (int item = 0; item < productsInWinkelwagen.size(); item++) {
+            System.out.println(productsInWinkelwagen.get(item));
+        }
+        System.out.println();
 
         // 3. Factory Pattern
-//        System.out.print("Wat voor een soort product wil je kopen? ");
-//        String productType = toetsenbord.nextLine();
-//        Product product = ProductFactory.createProduct(productType);
-//        System.out.println(product);
+        Product computer = ProductFactory.createProduct("computer");
+        assert computer != null;
+        computer.withProductName("laptop").withBrand("Dell")
+                .withPrice(600)
+                .withCategory("Computer")
+                .withAmount(10);;
 
-//        Product product = ProductFactory.createProduct("computer");
-//        product.printProductType();
+        Product tv = ProductFactory.createProduct("tv");
+        assert tv != null;
+        tv.withProductName("tv")
+                .withBrand("Philips")
+                .withPrice(200)
+                .withCategory("HiFi")
+                .withAmount(5);
+
+        System.out.println(computer);
+        System.out.println(tv);
+        System.out.println();
+
+        // zelf invullen
+        System.out.print("Wat voor een soort product wil je kopen? ");
+        String productType = toetsenbord.nextLine();
+
+        Product product = ProductFactory.createProduct(productType);
+        assert product != null;
+        product.printType();
 
         // 4. Iterator Pattern
 //        List<Product> products = new ArrayList<>();

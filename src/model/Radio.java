@@ -5,5 +5,8 @@ package model;
  * Purpose of the program
  */
 public class Radio extends Product {
-
+    @Override
+    public void printType() {
+        System.out.println("Ik koop een radio!");
+    }
 } // end of class Radio

@@ -12,15 +12,6 @@ public class Product {
     private String category;
     private int amount;
 
-
-
-    public void addAmount(){
-        System.out.println("Stock [ Name: "+ productName +", Quantity: " + amount +" ] bought");
-    }
-    public void decreaseAmount(){
-        System.out.println("Stock [ Name: "+ productName +", Quantity: " + amount +" ] sold");
-    }
-
     @Override
     public String toString() {
         return String.format(
@@ -53,5 +44,7 @@ public class Product {
         return this;
     }
 
+    public void printType(){
+    }
 
 } // end of class product
