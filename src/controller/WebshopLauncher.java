@@ -42,13 +42,22 @@ public class WebshopLauncher {
         System.out.println(product3);
 
         // 2. Singleton pattern
-        Winkelwagen.getInstance().addProduct(product1);
-        Winkelwagen.getInstance().addProduct(product2);
-        Winkelwagen.getInstance().addProduct(product3);
+        Winkelwagen winkelwagen1 = Winkelwagen.getInstance();
+        Winkelwagen winkelwagen2 = Winkelwagen.getInstance();
+        Winkelwagen winkelwagen3 = Winkelwagen.getInstance();
 
-        Winkelwagen w1 = Winkelwagen.getInstance(product1);
-        Winkelwagen w2 = Winkelwagen.getInstance(product2);
-        Winkelwagen w3 = Winkelwagen.getInstance(product3);
+        winkelwagen1.addProduct(product1);
+        winkelwagen2.addProduct(product2);
+        winkelwagen3.addProduct(product3);
+
+        System.out.println("winkelwagen1 == winkelwagen2: " + (winkelwagen1 == winkelwagen2));
+        System.out.println("winkelwagen1 == winkelwagen3: " + (winkelwagen1 == winkelwagen3));
+
+
+        System.out.println(winkelwagen1.getProductList());
+
+
+
 
 
         // 3. Factory Pattern

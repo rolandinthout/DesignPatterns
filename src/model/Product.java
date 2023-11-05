@@ -28,11 +28,7 @@ public class Product {
                 this.productName, this.brand, this.price, this.category, this.amount);
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public Product withProductName(String productName) {
+     public Product withProductName(String productName) {
         this.productName = productName;
         return this;
     }
@@ -56,5 +52,6 @@ public class Product {
         this.amount = amount;
         return this;
     }
+
 
 } // end of class product

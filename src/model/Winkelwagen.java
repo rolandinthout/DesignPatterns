@@ -9,59 +9,22 @@ import java.util.List;
  */
 public class Winkelwagen {
     // static field kenmerk 2.
-    private static Winkelwagen single_instance;
+    private static Winkelwagen instance;
 
     // variable
-    private List<Product> productList = new ArrayList<>();
-
-    private List<Order> orderList = new ArrayList<Order>();
-
+    private final List<Product> productList;
 
     // private constructor kenmerk 1.
-    private Winkelwagen() {
+    private Winkelwagen(){
+        this.productList = new ArrayList<>();
     }
-
-
-    // iterator pattern
-    public Iterator<Product> getIterator() {
-        return new ProductIterator();
-    }
-
-    private class ProductIterator implements Iterator<Product> {
-        int index;
-
-        @Override
-        public boolean hasNext() {
-
-            return index < productList.size();
-        }
-
-        @Override
-        public Product next() {
-            return productList.get(index++);
-        }
-    }
-
-
-    // command pattern
-    public void takeOrder(Order order){
-        orderList.add(order);
-    }
-
-    public void placeOrders(){
-        for (Order order : orderList) {
-            order.execute();
-        }
-        orderList.clear();
-    }
-
 
     // Winkelwagen.getInstance() kenmerk 3.
     public static Winkelwagen getInstance() {
-        if (single_instance == null)
-            single_instance = new Winkelwagen();
+        if (instance == null)
+            instance = new Winkelwagen();
 
-        return single_instance;
+        return instance;
     }
 
     public List<Product> getProductList() {
@@ -72,6 +35,29 @@ public class Winkelwagen {
         productList.add(product);
     }
 
+
+    // iterator pattern
+//    public Iterator<Product> getIterator() {
+//        return new ProductIterator();
+//    }
+//
+//    private class ProductIterator implements Iterator<Product> {
+//        int index;
+//
+//        @Override
+//        public boolean hasNext() {
+//
+//            return index < productList.size();
+//        }
+//
+//        @Override
+//        public Product next() {
+//            return productList.get(index++);
+//        }
+//    }
+
+
+    // command pattern
 //    public void getWinkelwagen(Product product) {
 //        return
 //    }
